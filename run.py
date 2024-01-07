@@ -25,6 +25,7 @@ app = Flask(__name__)
 # get channel_secret and channel_access_token from your environment variable
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
+mailgun_api_key = os.getenv('MAILGUN_API_KEY', None)
 if channel_secret is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
     sys.exit(1)
@@ -123,7 +124,7 @@ def upload_to_imgur(file_name, client_id):
 def send_message(name):
     return requests.post(
         "https://api.mailgun.net/v3/sandbox190a6b9d6bf844a080e7bdeef2d9a785.mailgun.org/messages",
-        auth=("api", "bf770443d167d327d6aa28581264e541-1900dca6-3f59f0ee"),
+        auth=("api", mailgun_api_key),
         files=[("attachment", ("image.jpg", open("image.jpg", "rb").read()))],
         data={"from": 'Uknowho@gmail.com',
               "to": ["matthew.in.ncu@g.ncu.edu.tw"],
@@ -140,7 +141,7 @@ def call_rasp():
     pi_pwm = GPIO.PWM(ledpin, 100)
     pi_pwm.start(0)
 
-    for _ in range(3):
+    for _ in range(2):
         for duty in range(0, 101, 1):
             pi_pwm.ChangeDutyCycle(duty)
             sleep(0.01)
