@@ -31,9 +31,9 @@ This is a simple project to demonstrate how to use the Raspberry Pi 4 to control
 
 Here is the circuit diagram for the hardware setup.
 
-![circuit diagram]()
+![circuit diagram](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/circuit.png)
 
-> **Note:** The LED lights are connected to GPIO 11, 13. The buzzer is in series circuit with Red LEDs. The PIR sensor is connected to GPIO 2(power) and 19(signal). Remember to insert your pi camera into the pi.
+> The LED lights are connected to GPIO 11, 13. The buzzer is in series circuit with Red LEDs. The PIR sensor is connected to GPIO 2(power) and 19(signal). Remember to insert your pi camera into the pi.
 ### Step 2. Install Dependencies
 
 
