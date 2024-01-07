@@ -4,6 +4,25 @@ This is a simple project to demonstrate how to use the Raspberry Pi 4 to control
 
 ## Demo Video
 
-[![Demo Video](http
+[Demo video]
 
-## Hardware
+## Components
+### Hardware
+
+- Raspberry Pi 4
+- Raspberry Pi Camera
+- LED lights
+- Breadboard
+- Jumper wires
+- Buzzer
+- PIR sensor
+
+
+### Software
+
+- Python 3
+- OpenCV
+- Line chatbot
+- ngrok
+
+## How to use
