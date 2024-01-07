@@ -35,10 +35,10 @@ Here is the circuit diagram for the hardware setup.
 ![circuit diagram](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/circuit.png)
 
 > The LED lights are connected to GPIO 11, 13. The buzzer is in Parallel Circuit with Red LEDs. The PIR sensor is connected to GPIO 2(power) and 19(signal). Remember to insert your pi camera into the pi.
-  
-    
-      
-      
+
+\
+<br>
+
 ### Step 2. Set up Line chatbot & ngrok
 
 **I strongly recommend running with `python 3`**, it cause some problems when I run with python 2. When pip installing in the following step, **use `pip3` instead of pip**.
@@ -63,9 +63,9 @@ Adjust this line to send images and stickers
 ```python
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageMessage, StickerSendMessage, ImageSendMessage
 ```  
-  
-    
 
+\
+<br>
 
 ### Step 3. Facial Recognition
 
@@ -82,6 +82,8 @@ If you want to send emails, add another environment variable in `/etc/environmen
 MAILGUN_API_KEY=your_mailgun_api_key
 ```
 
+\
+<br>
 
 ### Step 4. Run the program
 
@@ -94,6 +96,9 @@ git clone https://github.com/Matthew-HMS/Patrol-night-light.git
 ```shell
 sudo -E python3 run.py
 ```
+
+\
+<br>
 
 ### Step 5. Set up Motion (Optional)
 
@@ -108,6 +113,10 @@ If you want to use the pi camera to detect motion, you can follow this [tutorial
 
 
 
+
+\
+\
+<br>
 
 
 ## References
