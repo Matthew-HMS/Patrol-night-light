@@ -123,7 +123,7 @@ def upload_to_imgur(file_name, client_id):
 # function for setting up emails
 def send_message(name):
     return requests.post(
-        "https://api.mailgun.net/v3/sandbox190a6b9d6bf844a080e7bdeef2d9a785.mailgun.org/messages",
+        "https://api.mailgun.net/v3/sandbox025595fed187430190d432c40666ce06.mailgun.org/messages",
         auth=("api", mailgun_api_key),
         files=[("attachment", ("image.jpg", open("image.jpg", "rb").read()))],
         data={"from": 'Uknowho@gmail.com',
