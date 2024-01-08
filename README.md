@@ -49,7 +49,7 @@ Here is the circuit diagram for the hardware setup.
 ```shell
 sudo nano /etc/environment
 ```
-Add the following lines to the file and save it. (Ctrl+X, Y, Enter)
+Add the following lines to the file, change it to your secret and token then save it. (Ctrl+X, Y, Enter)
 ```shell
 LINE_CHANNEL_SECRET=your_line_channel_secret
 LINE_CHANNEL_ACCESS_TOKEN=your_line_channel_access_token
@@ -79,6 +79,10 @@ pip3 install opencv-python==4.7.0.72
 
 If you want to send emails, add another environment variable in `/etc/environment` file.
 ```shell
+sudo nano /etc/environment
+```
+Add your mailgun api key to the file, then save it. (Ctrl+X, Y, Enter)
+```shell
 MAILGUN_API_KEY=your_mailgun_api_key
 ```
 
@@ -102,22 +106,29 @@ sudo -E python3 run.py
 
 ### Step 5. Set up Motion (Optional)
 
-If you want to use the pi camera to detect motion, you can follow this [tutorial](https://pimylifeup.com/raspberry-pi-webcam-server/). It's very easy to set up. Remember to change the port number to 8081 in the `motion.conf` file.
+Follow the instructions in this [tutorial](https://pimylifeup.com/raspberry-pi-webcam-server/) to set up the motion. Remember to enable the camera in the `raspi-config` file.
 
+When Motion is on, it will occupy the camera's resource. So you can't use the Motion and `run.py` at the same time. However, the motion will automatically turn on when you reboot the pi.
 
+Turn it off by typing this in the terminal.
+>⚠️ **You have to turn it off before running the `run.py` file.**
+```shell
+sudo systemctl stop motion
+```
 
+Turn it on by typing this in the terminal.
+```shell
+sudo systemctl start motion
+```
 
-
-
-
-
-
-
+I recommend setting `movie_output on` but `picture_output off`in the `motion.conf` file. It will record a video when there's a motion detected, and won't take pictures. It might cause some lags on streaming though.
+```shell
+sudo nano /etc/motion/motion.conf
+```
 
 \
 \
 <br>
-
 
 ## References
 
@@ -127,7 +138,11 @@ If you want to use the pi camera to detect motion, you can follow this [tutorial
     - [Line developers](https://developers.line.biz/en/)
     - [ngrok](https://ngrok.com/)
 
-- [Face Recognition]
+- Face Recognition
     - [opencv-python install tutorial](https://raspberrytips.com/install-opencv-on-raspberry-pi/)
     - [Raspberry Pi for Facial Recognition](https://www.tomshardware.com/how-to/raspberry-pi-facial-recognition#:~:text=Part%201%3A%20Install%20Dependencies%20for%20Raspberry%20Pi%20Facial,5.%20Install%20face_recognition.%20...%206%206.%20Install%20imutils)
+    - [Mailgun](https://www.mailgun.com/)
+
+- [GPIO Pinout](https://pinout.xyz/)
+
 
