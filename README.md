@@ -2,6 +2,8 @@
 
 This is a simple project to demonstrate how to use the Raspberry Pi 4 to control LED nights and using facial recognition to identify the person in front of the camera. The whole project is controlled by Line chatbot. It will send messages to the user if there are any visitors (recognized). When there's a stranger (unrecognized), the buzzer will be triggered and the user will receive a message from the chatbot. The user can control the whole system by sending messages to the chatbot.
 
+<br>
+
 ## Demo Video
 
 ![Demo video]()
@@ -25,6 +27,8 @@ This is a simple project to demonstrate how to use the Raspberry Pi 4 to control
 - Line chatbot
 - ngrok
 - mailgun
+
+<br>
 
 ## Instructions
 
@@ -53,16 +57,26 @@ Add the following lines to the file, change it to your secret and token then sav
 ```shell
 LINE_CHANNEL_SECRET=your_line_channel_secret
 LINE_CHANNEL_ACCESS_TOKEN=your_line_channel_access_token
+LINE_USER_ID=your_line_user_id
 ```
-For me, I had to add this in the python file as well. Put it in the first line! (You dno't have to do these following two if you're going to use my code)
-```python
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+You have to reboot the pi to make it work when you add an environment variable !
+```shell
+sudo reboot
 ```
-Adjust this line to send images and stickers
-```python
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageMessage, StickerSendMessage, ImageSendMessage
+Check if the environment variables are set correctly.
+```shell
+printenv
 ```  
+
+3. Add Imgur Service
+```shell
+pip3 install pyimgur
+```
+Follow the tutorial in this [link](https://ithelp.ithome.com.tw/articles/10241006) to set up your Imgur account and get your client id. Then add it to the environment variables as well.
+```shell
+sudo nano /etc/environment
+```
+
 
 \
 <br>
@@ -166,6 +180,7 @@ And that's it! You can now control the system by sending messages to the chatbot
     - [Set up Line chatbot](https://hackmd.io/@Xiugapurin/S1siaZwht)
     - [Line developers](https://developers.line.biz/en/)
     - [ngrok](https://ngrok.com/)
+    - [Imgur set up](https://ithelp.ithome.com.tw/articles/10337875)
 
 - Face Recognition
     - [opencv-python install tutorial](https://raspberrytips.com/install-opencv-on-raspberry-pi/)
