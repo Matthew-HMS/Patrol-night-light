@@ -1,6 +1,6 @@
 ## Overview
 
-This is a simple project to demonstrate how to use the Raspberry Pi 4 to control LED nights and using facial recognition to identify the person in front of the camera. The whole project is controlled by Line chatbot. It will send messages to the user if there are any visitors (recognized). The user can also control the LED lights by sending messages to the chatbot. When there's a stranger (unrecognized), the buzzer will be triggered and the user will receive a message from the chatbot. 
+This is a simple project to demonstrate how to use the Raspberry Pi 4 to control LED nights and using facial recognition to identify the person in front of the camera. The whole project is controlled by Line chatbot. It will send messages to the user if there are any visitors (recognized). When there's a stranger (unrecognized), the buzzer will be triggered and the user will receive a message from the chatbot. The user can control the whole system by sending messages to the chatbot.
 
 ## Demo Video
 
@@ -106,9 +106,9 @@ sudo -E python3 run.py
 
 ### Step 5. Set up Motion (Optional)
 
-Follow the instructions in this [tutorial](https://pimylifeup.com/raspberry-pi-webcam-server/) to set up the motion. Remember to enable the camera in the `raspi-config` file.
+Follow the instructions in this [tutorial](https://pimylifeup.com/raspberry-pi-webcam-server/) to set up the Motion. Remember to enable the camera in the `raspi-config` file.
 
-When Motion is on, it will occupy the camera's resource. So you can't use the Motion and `run.py` at the same time. However, the motion will automatically turn on when you reboot the pi.
+When Motion is on, it will occupy the camera's resource. So you can't use the Motion and `run.py` at the same time. However, the Motion will automatically turn on when you reboot the pi.
 
 Turn it off by typing this in the terminal.
 >⚠️ **You have to turn it off before running the `run.py` file.**
@@ -120,11 +120,40 @@ Turn it on by typing this in the terminal.
 ```shell
 sudo systemctl start motion
 ```
+Go here to see the streaming. (within the same network)
+```shell
+http://your_pi_ip:8081
+```
+
+<br>
 
 I recommend setting `movie_output on` but `picture_output off`in the `motion.conf` file. It will record a video when there's a motion detected, and won't take pictures. It might cause some lags on streaming though.
 ```shell
 sudo nano /etc/motion/motion.conf
 ```
+You can find the .mp4 files in `/motion` directory.
+```shell
+cd /motion
+```
+And that's it! You can now control the system by sending messages to the chatbot.
+
+\
+\
+<br>
+
+## How to use
+
+1. Send `help` to the chatbot to see the instructions.
+
+2. Send `開燈` to turn on the Yellow LED lights.
+
+3. Send `pir` to turn on the PIR sensor. (It will send a message to the user as long as there's a motion detected) 
+
+4. Send `關閉` to turn off the Yellow LED lights and PIR sensor.
+
+5. Send `警鈴` to test the alert system. (Trigger the buzzer and Red LEDs)
+
+5. Send `disconnect` to stop the program.
 
 \
 \

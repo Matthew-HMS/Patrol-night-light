@@ -107,6 +107,10 @@ def reply_message(event):
         line_bot_api.reply_message(event.reply_token, message)
         pir_on()
 
+    if 'help' in event.message.text.lower():
+        message = [TextSendMessage(text='指令列表:\n警鈴\n開燈\n關閉\npir\ndisconnect')]
+        line_bot_api.reply_message(event.reply_token, message)
+
     else:
         line_bot_api.reply_message(
             event.reply_token,
