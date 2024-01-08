@@ -53,7 +53,7 @@ Here is the circuit diagram for the hardware setup.
 ```shell
 sudo nano /etc/environment
 ```
-Add the following lines to the file, change it to your secret and token then save it. (Ctrl+X, Y, Enter)
+Add the following lines to the file, change it to your secret, token and id then save it. (Ctrl+X, Y, Enter)
 ```shell
 LINE_CHANNEL_SECRET=your_line_channel_secret
 LINE_CHANNEL_ACCESS_TOKEN=your_line_channel_access_token
@@ -159,15 +159,27 @@ And that's it! You can now control the system by sending messages to the chatbot
 
 1. Send `help` to the chatbot to see the instructions.
 
+![help](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/help.png)
+
 2. Send `開燈` to turn on the Yellow LED lights.
+
+![light](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/light.png)
 
 3. Send `pir` to turn on the PIR sensor. (It will send a message to the user as long as there's a motion detected) 
 
+![pir](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/pir.png)
+
 4. Send `關閉` to turn off the Yellow LED lights and PIR sensor.
+
+![off](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/stop.png)
 
 5. Send `警鈴` to test the alert system. (Trigger the buzzer and Red LEDs)
 
-5. Send `disconnect` to stop the program.
+![ring](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/ring.png)
+
+6. Send `disconnect` to stop the program.
+
+![disconnect](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/disconnect.png)
 
 \
 \
@@ -175,17 +187,19 @@ And that's it! You can now control the system by sending messages to the chatbot
 
 ## References
 
-- [Raspberry Pi Webcam Server](https://pimylifeup.com/raspberry-pi-webcam-server/)
 - Line chatbot
     - [Set up Line chatbot](https://hackmd.io/@Xiugapurin/S1siaZwht)
     - [Line developers](https://developers.line.biz/en/)
     - [ngrok](https://ngrok.com/)
-    - [Imgur set up](https://ithelp.ithome.com.tw/articles/10337875)
+    - [Imgur set up](https://ithelp.ithome.com.tw/articles/10241006)
+    - [Line Push Message](https://ithelp.ithome.com.tw/articles/10337875)
 
 - Face Recognition
     - [opencv-python install tutorial](https://raspberrytips.com/install-opencv-on-raspberry-pi/)
     - [Raspberry Pi for Facial Recognition](https://www.tomshardware.com/how-to/raspberry-pi-facial-recognition#:~:text=Part%201%3A%20Install%20Dependencies%20for%20Raspberry%20Pi%20Facial,5.%20Install%20face_recognition.%20...%206%206.%20Install%20imutils)
     - [Mailgun](https://www.mailgun.com/)
+
+- [Raspberry Pi Webcam Server](https://pimylifeup.com/raspberry-pi-webcam-server/)
 
 - [GPIO Pinout](https://pinout.xyz/)
 
