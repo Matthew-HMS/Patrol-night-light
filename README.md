@@ -89,7 +89,7 @@ pip3 install --upgrade pip setuptools wheel
 pip3 install opencv-python==4.7.0.72
 ```
 
-2. Follow every steps in this [tutorial](https://www.tomshardware.com/how-to/raspberry-pi-facial-recognition#:~:text=Part%201%3A%20Install%20Dependencies%20for%20Raspberry%20Pi%20Facial,5.%20Install%20face_recognition.%20...%206%206.%20Install%20imutils) to set up the model and email. It's the most difficult part... Remember to use `pip3` instead of `pip`! 
+2. Follow every steps in this [tutorial](https://www.tomshardware.com/how-to/raspberry-pi-facial-recognition#:~:text=Part%201%3A%20Install%20Dependencies%20for%20Raspberry%20Pi%20Facial,5.%20Install%20face_recognition.%20...%206%206.%20Install%20imutils) to generate `pickle` file and set up email. It's the most difficult part... Remember to use `pip3` instead of `pip`! 
 
 If you want to send emails, add another environment variable in `/etc/environment` file.
 ```shell
@@ -99,6 +99,19 @@ Add your mailgun api key to the file, then save it. (Ctrl+X, Y, Enter)
 ```shell
 MAILGUN_API_KEY=your_mailgun_api_key
 ```
+Adjust the `run.py` file to your own settings. You can change the receiver's email address and the sender's email address. You can also change the message content. Remember to use your own domain name and api key!
+```python
+def send_message(name):
+    return requests.post(
+        "https://api.mailgun.net/v3/{your domain}/messages",
+        auth=("api", mailgun_api_key),
+        files=[("attachment", ("image.jpg", open("image.jpg", "rb").read()))],
+        data={"from": '{Sender email address}',
+              "to": ["{Receiver email address}"],
+              "subject": "You have a visitor",
+              "html": "<html>" + name + " is at your door.  </html>"})
+```
+
 
 \
 <br>
