@@ -40,6 +40,10 @@ Here is the circuit diagram for the hardware setup.
 
 > The LED lights are connected to GPIO 11, 13. The buzzer is in Parallel Circuit with Red LEDs. The PIR sensor is connected to GPIO 2(power) and 19(signal). Remember to insert your pi camera into the pi.
 
+Should be something like this.
+
+![hardware setup](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/pi.jpg)
+
 \
 <br>
 
