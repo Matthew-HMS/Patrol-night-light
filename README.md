@@ -6,7 +6,7 @@ This is a simple project to demonstrate how to use the Raspberry Pi 4 to control
 
 ## Demo Video
 
-![Demo video](https://youtu.be/3rNHdAN0HUA)
+[Demo video](https://youtu.be/3rNHdAN0HUA)
 
 ## Components
 ### Hardware
