@@ -1,6 +1,6 @@
 ## Overview
 
-This is a simple project to demonstrate how to use the Raspberry Pi 4 to control LED nights and using facial recognition to identify the person in front of the camera. The whole project is controlled by Line chatbot. It will send messages to the user if there are any visitors (recognized). When there's a stranger (unrecognized), the buzzer will be triggered and the user will receive a message from the chatbot. The user can control the whole system by sending messages to the chatbot.
+This is a simple project to demonstrate how to use the Raspberry Pi 4 to control LED nights and using facial recognition to identify the person in front of the camera. The whole project is controlled by Line bot. It will send messages to the user if there are any visitors (recognized). When there's a stranger (unrecognized), the buzzer will be triggered and the user will receive a message from the bot. The user can control the whole system by sending messages to the bot.
 
 <br>
 
@@ -24,7 +24,7 @@ This is a simple project to demonstrate how to use the Raspberry Pi 4 to control
 
 - Python 3.7
 - OpenCV
-- Line chatbot
+- Line bot
 - ngrok
 - mailgun
 
@@ -43,11 +43,11 @@ Here is the circuit diagram for the hardware setup.
 \
 <br>
 
-### Step 2. Set up Line chatbot & ngrok
+### Step 2. Set up Line bot & ngrok
 
 **I strongly recommend running with `python 3`**, it cause some problems when I run with python 2. When pip installing in the following step, **use `pip3` instead of pip**.
 
-1. Follow the instructions in this [tutorial](https://hackmd.io/@Xiugapurin/S1siaZwht) to set up your Line chatbot and ngrok.
+1. Follow the instructions in this [tutorial](https://hackmd.io/@Xiugapurin/S1siaZwht) to set up your Line bot and ngrok.
 
 2. Set up the environment variables (`export` didn't work for me, so...)
 ```shell
@@ -72,7 +72,7 @@ printenv
 ```shell
 pip3 install pyimgur
 ```
-Follow the tutorial in this [link](https://ithelp.ithome.com.tw/articles/10241006) to set up your Imgur account and get your client id. Then add it to the environment variables as well.
+Follow the tutorial in this [link](https://ithelp.ithome.com.tw/articles/10241006) to set up your Imgur account and get your `client id`. Then add it to the environment variables as well.
 ```shell
 sudo nano /etc/environment
 ```
@@ -99,7 +99,7 @@ Add your mailgun api key to the file, then save it. (Ctrl+X, Y, Enter)
 ```shell
 MAILGUN_API_KEY=your_mailgun_api_key
 ```
-Adjust the `run.py` file to your own settings. You can change the receiver's email address and the sender's email address. You can also change the message content. Remember to use your own domain name and api key!
+Adjust the `run.py` file to your own settings. You can change the receiver's email address and the sender's email address. You can also change the message content. Remember to use your own `domain name` and `api key`!
 ```python
 def send_message(name):
     return requests.post(
@@ -162,7 +162,7 @@ You can find the .mp4 files in `/motion` directory.
 ```shell
 cd /motion
 ```
-And that's it! You can now control the system by sending messages to the chatbot.
+And that's it! You can now control the system by sending messages to the bot.
 
 \
 \
@@ -170,7 +170,7 @@ And that's it! You can now control the system by sending messages to the chatbot
 
 ## How to use
 
-1. Send `help` to the chatbot to see the instructions.
+1. Send `help` to the bot to see the instructions.
 
 ![help](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/help.png)
 
@@ -194,14 +194,18 @@ And that's it! You can now control the system by sending messages to the chatbot
 
 ![disconnect](https://github.com/Matthew-HMS/Patrol-night-light/blob/main/readme_img/disconnect.png)
 
+<br>
+
+⚠️There's monthly limit to send messages using Line bot. The bot won't work after reaching the limit!⚠️ 
+
 \
 \
 <br>
 
 ## References
 
-- Line chatbot
-    - [Set up Line chatbot](https://hackmd.io/@Xiugapurin/S1siaZwht)
+- Line bot
+    - [Set up Line bot](https://hackmd.io/@Xiugapurin/S1siaZwht)
     - [Line developers](https://developers.line.biz/en/)
     - [ngrok](https://ngrok.com/)
     - [Imgur set up](https://ithelp.ithome.com.tw/articles/10241006)
